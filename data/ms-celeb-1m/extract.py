@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python
 #
 # Copyright 2016 Carnegie Mellon University
 #
@@ -43,7 +43,15 @@ with open(args.croppedTSV, 'r') as tsvF:
 
         # assert(magic.from_buffer(data) == 'JPEG image data, JFIF standard 1.01')
 
-        os.makedirs(saveDir, exist_ok=True)
+        # os.makedirs(saveDir, exist_ok=True)
+        try:
+            os.makedirs(save_dir)
+        except OSError as exc:
+            if exc.errno == errno.EEXIST and os.path.isdir(save_dir):
+                pass
+            else:
+                raise
+
         with open(savePath, 'wb') as f:
             f.write(data)
 
