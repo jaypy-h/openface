@@ -45,9 +45,9 @@ with open(args.croppedTSV, 'r') as tsvF:
 
         # os.makedirs(saveDir, exist_ok=True)
         try:
-            os.makedirs(save_dir)
+            os.makedirs(saveDir)
         except OSError as exc:
-            if exc.errno == errno.EEXIST and os.path.isdir(save_dir):
+            if exc.errno == errno.EEXIST and os.path.isdir(saveDir):
                 pass
             else:
                 raise
