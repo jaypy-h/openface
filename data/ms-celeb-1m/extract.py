@@ -25,6 +25,7 @@ import argparse
 import base64
 import csv
 import os
+import errno
 # import magic # Detect image type from buffer contents (disabled, all are jpg)
 
 parser = argparse.ArgumentParser()
